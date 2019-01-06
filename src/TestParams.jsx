@@ -24,7 +24,7 @@ const fetchPost = (url, data) => fetch(url, {
 const fetchPostFormData = (url, data) => {
     const parsedData = new FormData();
     parsedData.append( "json", JSON.stringify(data));
-    return fetch("/echo/json/",
+    return fetch(url,
     {
         method: "POST",
         body: parsedData
@@ -57,15 +57,17 @@ class TestParams extends Component {
     }
 
     handleChangeUrl= (event) => {
+        console.log('event')
         this.setState({
             url: event.target.value
         });
     }
 
     runTest = test => () => {
-        test.test(this.state.url, sampleData).then(result => {
+        const url = `http://localhost/${this.state.url}.php`;
+        test.test(url, sampleData).then(result => {
             this.setState({result});
-        })
+        }).catch(error => console.error(error))
     }
 
     render() {
@@ -75,7 +77,7 @@ class TestParams extends Component {
                     {urls.map((url) => (
                         <div>
                             <label>
-                                <input type="radio" value={url} onChange={this.handleChangeOptionUrl} checked={url === this.state.url} key={url}/>
+                                <input type="radio" value={url} onChange={this.handleChangeUrl} checked={url === this.state.url} key={url}/>
                                 {url}
                             </label>
                         </div>
@@ -87,7 +89,7 @@ class TestParams extends Component {
                     ))}
                 </div>
                 <div>
-                    <pre>{this.state.result}</pre>
+                    <pre>{JSON.stringify(this.state.result, null, 2)}</pre>
                 </div>
             </div>
         );

@@ -4,3 +4,7 @@ curl -d "@data.json" -X POST http://localhost/test-post.php
 curl -d '{"key1":"value1", "key2":"value2"}' -H "Content-Type: application/json" -X POST http://localhost/test-post.php
 
 curl -d '{"key1":"value1", "key2":"value2"}' -H "Content-Type: application/json" -X POST http://localhost/test-post-get-contents.php
+
+curl -d '{"key1":"value1", "key2":"value2"}' -H "Content-Type: application/json" -X POST http://080b3bf6.ngrok.io/test-post-get-contents.php
+
+http://8d00dab7.ngrok.io

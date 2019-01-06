@@ -1,0 +1,5 @@
+Identificar se o problema está no back ou no front
+Verificar a forma como o fetch passa os dados (body e content-type), olhar o network e o tipo de POST
+Verificar o response, status e body
+Verificar os header no request e no response, cors e auth, jwt, token, session, credentials
+Usar o ngrok para receber a requisicao e ajudar na identificacao do problema, se o back recebe os dados

@@ -1,0 +1,9 @@
+{
+"id": 1,
+"name": "Marcos",
+"nested": {
+    "id": 11,
+    "name": "Andrei"
+},
+"array": [1, 2, 3]
+}
